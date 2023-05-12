@@ -1,0 +1,37 @@
+<template>
+
+    <template if:true={contact}>
+        <div class="container">
+            <lightning-card  title={contact.Title}>
+                <div class="details">
+                    <p>
+                        <lightning-badge label={contactName}></lightning-badge>
+                    </p>
+                    <br/>
+
+                    <img class="contact-img" src={contact.AvatarURL__c}></img>
+                    <br/>
+
+                    <div class="price">
+                        Mercenary's rate: <Strong>{contactRate}</Strong>
+                    </div>
+                    <p>
+                        <lightning-badge label={contact.Phone}></lightning-badge>
+                    </p>
+
+                    <div style="margin-top:5px;margin-bottom:10px;" class="slds-border_top"></div>
+
+                    <p slot="footer">    
+                      <lightning-button variant="success" 
+                                        label="Add this candidate?"
+                                        onclick={addCandidate} 
+                                        class="slds-m-left_x-small">
+                        </lightning-button>
+                    </p>
+
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+
+</template>

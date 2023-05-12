@@ -1,0 +1,26 @@
+<aura:component controller="PadavanController">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:handler name="cmpEvent" event="c:messageEvent" action="{!c.handleComponentEvent}" />
+
+    <aura:attribute name="title" type="String" default="person" />
+    <aura:attribute name="myName" type="String" default="" />
+    <aura:attribute name="lightSaberColor" type="String" default="Green" />
+    <aura:attribute name="question" type="String" default="hello" />
+
+    <p>Hello Padavan! {!v.title} - {!v.myName}</p>
+
+    <lightning:input value="{!v.title}" label="Title text" />
+    <br />
+    <lightning:button variant="brand-outline" label="Update UserName" title="Brand action" onclick="{!c.buttonClick}" />
+
+    <!-- Child -->
+    <br />
+    <c:LightSaber color="{!v.lightSaberColor}" />
+
+    <!-- Child -->
+    <br />
+    <c:droid question="{!v.question}" />
+    
+</aura:component>	

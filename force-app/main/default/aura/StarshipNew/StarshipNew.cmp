@@ -1,0 +1,21 @@
+<aura:component implements="force:hasRecordId" controller="StarshipNewController">
+
+    <aura:registerEvent name="cmpEvent" type="c:createStarshipEvent" />
+
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="newStarship" type="Starship__c" default="{ 'sobjectType': 'Starship__c' }" />
+    
+    <lightning:card title="Create New Starship" iconName="custom:custom20">
+      <div class="slds-p-horizontal--small">
+        
+        <lightning:input label="Starship Name" value="{!v.newStarship.Name}" required="true" />
+        <lightning:input label="Crew Size" type="number" value="{!v.newStarship.Crew_Size__c}" required="true" />
+
+        <div class="slds-align_absolute-center" style="height:5rem">
+            <lightning:button name="Create Starship" label="Create" variant="brand" onclick="{!c.createStarship}"/>
+        </div>
+
+      </div>
+    </lightning:card> 
+
+</aura:component>

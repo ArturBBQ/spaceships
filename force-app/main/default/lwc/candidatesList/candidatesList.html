@@ -1,0 +1,11 @@
+<template>
+    <div class="container">
+        <template if:true={contacts}>
+
+            <template for:each={contacts} for:item = "contact">
+                <c-candidate-item key={contact.Id} contact={contact}></c-candidate-item>
+            </template>
+            
+        </template>
+    </div>
+</template>

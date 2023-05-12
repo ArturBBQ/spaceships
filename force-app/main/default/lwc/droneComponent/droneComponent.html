@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Dron" icon-name="custom:custom20">
+
+        <div class="slds-align_absolute-center" style="height:5rem">
+
+            <lightning-button variant="brand" label="Show Drone" onclick={handleShowDrone} class="slds-m-left_x-small">
+                </lightning-button>
+            <br/>
+
+            <template if:true = {isShowDrone}>
+                <p> DRON </p>
+            </template>
+
+        </div>
+        
+        <lightning-combobox name="progress"
+                            label="Question"
+                            value={value}
+                            options={options}
+                            onchange={handleQuestion} ></lightning-combobox>
+        <br/>
+
+        <p> Answer is: {value} </p>
+                
+    </lightning-card>
+    
+</template>

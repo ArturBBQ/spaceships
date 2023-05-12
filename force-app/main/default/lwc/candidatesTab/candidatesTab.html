@@ -1,0 +1,20 @@
+<template>
+
+    <div class="slds-box slds-theme_default">
+        <header class="header">Team Status: {crewMembers} of {crewSize}</header>
+        <lightning-progress-bar value={progresBar} size="large"></lightning-progress-bar>
+    </div>
+
+    <br/>
+
+    <template if:true={showCandidates}>
+        <lightning-card title="Select a candidate for your starship crew" icon-name="custom:custom103">
+
+            <c-candidates-list station-id={currentStationId}></c-candidates-list>         
+
+            <c-candidate-detail starship-id={recordId} onmessage={handleMessage}></c-candidate-detail>   
+
+        </lightning-card>
+    </template>
+
+</template>

@@ -1,0 +1,14 @@
+.container {
+    padding: 10px;
+}
+
+.details {
+    text-align: center;
+    padding: 10px;
+}
+
+.noContact {
+    text-align: center;
+    font-weight: 500;
+    margin-top: 20px;
+}

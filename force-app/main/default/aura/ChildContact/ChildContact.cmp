@@ -1,0 +1,21 @@
+<aura:component>
+
+    <aura:registerEvent name="updContactEvent" type="c:UpdateContactEvent"/>   
+
+    <aura:attribute name="contact" type="Contact"/>
+
+    <lightning:card variant="Narrow" title="{!v.contact.FirstName}" iconName="standard:contact">  
+
+            <aura:set attribute="footer">
+                <lightning:badge label="{!v.contact.LastName}"/>
+            </aura:set>  
+
+        <div class="slds-p-horizontal--small">
+            <lightning:input label="Contact Last Name" value="{!v.contact.LastName}"/>
+            <br/>
+            <lightning:button name="Update Contact" label="Update Contact" onclick="{!c.updateContact}" />
+        </div>
+
+    </lightning:card>
+
+</aura:component>	

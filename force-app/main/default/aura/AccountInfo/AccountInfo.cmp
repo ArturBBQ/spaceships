@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForAllPageTypes, force:hasRecordId" controller="AccountPageExtension">
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
+    <aura:handler name="updContactEvent" event="c:UpdateContactEvent" action="{!c.updateContactHandler}"/>
+
+    <aura:attribute name="recordId" type="String" />  
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="recordFields" type="Object"/>  
+    <aura:attribute name="contacts" type="Object"/>
+
+        <!-- Account Id is {!v.recordId} -->
+
+        <force:recordData
+            aura:id="recordHandler"
+            recordId="{!v.recordId}"
+            fields="Name,Site,Industry"
+            targetFields="{!v.recordFields}"
+            mode="EDIT"
+            recordUpdated="{!c.handleRecordUpdated}"
+        />  
+
+        <div class="Record Details">
+            <lightning:card iconName="action:edit" title="Edit Account">
+              <div class="slds-p-horizontal--small">
+                <lightning:input label="Account Name" value="{!v.recordFields.Name}"/>
+                <br/>
+                <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSaveRecord}" />
+              </div>
+            </lightning:card>
+         </div> 
+         <br/>
+         
+    <aura:iteration items="{!v.contacts}" var="item">
+       <c:ChildContact contact="{!item}"/>
+    </aura:iteration>  
+
+</aura:component>	

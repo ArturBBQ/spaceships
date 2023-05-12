@@ -1,0 +1,12 @@
+<aura:component>
+
+    <aura:registerEvent name="cmpEvent" type="c:messageEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+    <aura:attribute name="question" type="String" default="hello" />
+
+    <br />
+    Droid - question: {!v.question}
+
+</aura:component>	

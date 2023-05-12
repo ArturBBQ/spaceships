@@ -1,0 +1,48 @@
+<template>
+
+    <p class="slds-p-horizontal_small">
+        <lightning-input 
+            type="search" 
+            class="slds-m-bottom_small" 
+            label="Use IATA code to search for an Arrival Airport"
+            placeholder="Write IATA code here"
+            onchange={handleSearchChange} 
+            value={searchedAirportCode} 
+            maxlength="3"
+            required>
+        </lightning-input>
+    </p>
+        <div if:true={searchResults} class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox">
+            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                <template for:each={searchResults} for:item="searchResult">
+                    <li key={searchResult.value} data-value={searchResult.value} role="presentation" onclick={selectSearchResult} class="slds-listbox__item">
+                        <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option">
+                            <span class="slds-media__body">
+                                <span class="slds-truncate" title={searchResult.label}>
+                                    {searchResult.label}
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+    <template if:true={arrivalAirportName}>
+
+            <template if:true={isAirportFound}>
+
+                <p class="slds-p-horizontal_medium">
+                    Arrival Airport: <lightning-badge icon-name="custom:custom106" label={arrivalAirportName}></lightning-badge>
+                </p>
+                  <br/>
+
+                <lightning-button variant="brand" label="Save Flight" onclick={handleSave} class="slds-align_absolute-center"></lightning-button>
+                <br/>
+
+            </template>
+
+        <c-show-location-on-map ></c-show-location-on-map>
+
+    </template>
+</template>

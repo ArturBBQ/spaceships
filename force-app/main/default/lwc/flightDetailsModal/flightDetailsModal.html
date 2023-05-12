@@ -1,0 +1,36 @@
+<template>
+    <lightning-modal-header label="Flight Details"></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-record-view-form record-id={flightId}
+                                    object-api-name="Flight__c">
+        <div class="slds-box slds-theme_default slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Departure_Airport__c">
+                </lightning-output-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Distance__c">
+                </lightning-output-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Arrival_Airport__c">
+                </lightning-output-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Status__c">
+                </lightning-output-field>
+            </div>
+        </div>
+    </lightning-record-view-form>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-layout>
+            <lightning-layout-item size="6" class="slds-text-align_left">
+                <lightning-button label="Cancel" variant="destructive" onclick={closeModal}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" class="slds-text-align_right">
+                <lightning-button variant="brand" label="Flight Details" onclick={handleOpenFlight}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-modal-footer>
+</template>

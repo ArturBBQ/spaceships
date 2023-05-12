@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Jedi" icon-name="custom:custom58">
+      <div class="slds-m-around_medium">
+
+        <p>Hello, {padavanName}!</p>
+        <lightning-input label="Name" value={padavanName} onchange={changeHandler}></lightning-input>
+        
+        <br/>
+        <p>Hello, {padavanSkill}!</p>
+        <div class="slds-align_absolute-center" style="height:5rem">
+        <lightning-button variant="brand" label="Skill UP" title="Rewrite variable" onclick={handleClickReWrite} class="slds-m-left_x-small">
+            </lightning-button>
+
+        <lightning-button variant="destructive" label="Reset skill" title="Reset skill" onclick={handleResetSkill} class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+
+        <br/>
+
+        <c-light-saber-l-w-c sword-color = {saberColor}></c-light-saber-l-w-c>
+
+        <c-drone-component ondroneanswer={droneAnswerHandler}></c-drone-component>
+
+      </div>
+    </lightning-card>
+  </template>

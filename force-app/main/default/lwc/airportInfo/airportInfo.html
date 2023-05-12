@@ -1,0 +1,17 @@
+<template>
+    
+    <lightning-card variant="Narrow" title="BOOKING FLIGHTS" icon-name="action:map" >
+        
+        <template lwc:if={currentAirport.data}>
+            <p class="slds-p-horizontal_medium">
+                Departure Airport: <lightning-badge icon-name="custom:custom106" label={currentAirportName}></lightning-badge>
+            </p>
+              <br/>
+        </template>        
+
+        <c-search-destination-airport current-airport-id={recordId}
+                                      current-airport-code={currentAirportCode}></c-search-destination-airport>
+
+    </lightning-card>
+
+</template>
